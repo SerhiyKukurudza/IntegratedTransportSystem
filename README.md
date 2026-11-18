@@ -1,12 +1,13 @@
-# Projeto Programação Avançada 2024/25 - Época Normal
+# Advanced Programming Project 2024/25 - Normal Season
 
-![United Kingdom](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/gb.png "United Kingdom"): [English version](README_EN.md)
+![Portugal](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/pt.png "Portugal"): [Versão Portuguesa](README.md)
 
-## SIT – Sistema Integrado de Transportes
+## SIT – Integrated Transport System
 
-## Índice:
-* [Descrição do Projeto](#descrição-do-projeto)
-* [Estrutura de Dados](#estrutura-de-dados)
+## Table of Contents:
+
+* [Project Description](#project-description)
+* [Data Structures](#data-structures)
   * [PropertiesUtil](#propertiesutil)
   * [StringManipulation](#stringmanipulation)
   * [MapView](#mapview)
@@ -15,344 +16,354 @@
   * [Route](#route)
   * [Transport](#transport)
   * [TransportMap](#transportmap)
-* [Estrutura do Código](#estrutura-do-código)
-  * [Pasta `model`](#pasta-model)
-  * [Pasta `utils`](#pasta-utils)
-  * [Pasta `view`](#pasta-view)
-  * [Classe Main](#classe-main)
-* [Testes Unitários](#testes-unitários)
-  * [Testes para `DataSetImporter`](#testes-para-datasetimporter)
-  * [Testes para `Stop`](#testes-para-stop)
-  * [Testes para `Route`](#testes-para-route)
-  * [Testes para `TransportMap`](#testes-para-transportmap)
-  * [Testes para `Transport`](#testes-para-transport)
-* [Mockup da Interface Gráfica](#mockup-da-interface-gráfica)
-  * [Mockup Base da Interface Gráfica](#mockup-base-da-interface-gráfica)
-  * [Informação Sobre Paragens e Rotas](#informação-sobre-paragens-e-rotas)
-  * [Informação Sobre o Sistema de Informação](#informação-sobre-o-sistema-de-informação)
-  * [Informação Sobre o Planeador de Percurso](#informação-sobre-o-planeador-de-percurso)
-  * [Informação Sobre a Pesquisa de Paragens por Distância](#informação-sobre-a-pesquisa-de-paragens-por-distância)
-  * [Informação Sobre a Criação de Rota](#informação-sobre-a-criação-de-rota)
-  * [Informação Sobre as Definições da Aplicação](#informação-sobre-as-definições-da-aplicação)
-  * [Informação Sobre o Histórico de Ações](#informação-sobre-o-histórico-de-ações)
-  * [Informação Sobre a Alteração da Duração de Bicicleta](#informação-sobre-a-alteração-da-duração-de-bicicleta)
-  * [Informação Sobre a Gestão de Estado da Rota](#informação-sobre-a-gestão-de-estado-da-rota)
-* [Bibliotecas/dependências](#bibliotecasdependências)
+* [Code Structure](#code-structure)
+  * [`model` folder](#model-folder)
+  * [`utils` folder](#utils-folder)
+  * [`view` folder](#view-folder)
+  * [Class Main](#class-main)
+* [Unit Tests](#unit-tests)
+  * [Tests for `DataSetImporter`](#tests-for-datasetimporter)
+  * [Tests for `Stop`](#tests-for-stop)
+  * [Tests for `Route`](#tests-for-route)
+  * [Tests for `TransportMap`](#tests-for-transportmap)
+  * [Tests for `Transport`](#tests-for-transport)
+* [Graphical Interface Mockup](#graphical-interface-mockup)
+  * [Base Graphical Interface Mockup](#base-graphical-interface-mockup)
+  * [Information About Stops and Routes](#information-about-stops-and-routes)
+  * [Information About the Information System](#information-about-the-information-system)
+  * [Information About the Route Planner](#information-about-the-route-planner)
+  * [Information About Stop Search by Distance](#information-about-stop-search-by-distance)
+  * [Information About Route Creation](#information-about-route-creation)
+  * [Information About Application Settings](#information-about-application-settings)
+  * [Information About Action History](#information-about-action-history)
+  * [Information About Updating Transportation Data](#information-about-updating-transportation-data)
+  * [Information About Route State Management](#information-about-route-state-management)
+* [Libraries/Dependencies](#librariesdependencies)
 * [Java Development Kit](#java-development-kit)
 
 ---
 
-### Descrição do Projeto
-O Sistema Integrado de Transportes é uma aplicação que modela uma rede de transporte público interligada, oferecendo diferentes meios de transporte para facilitar a deslocação de pessoas entre pontos da rede. Este sistema permite planear viagens entre paragens, mesmo quando estas requerem a utilização de vários modos de transporte, como comboio, autocarro, barco, bicicleta ou até deslocações a pé. Com a interface gráfica, o sistema permite uma visualização interativa da rede de transportes.
+### Project Description
+The Integrated Transport System is an application that models an interconnected public transport network, offering various transport modes to facilitate travel between points in the network. This system allows users to plan journeys between stops, even when they require the use of multiple modes of transport, such as trains, buses, ferries, bicycles, or walking. With the graphical interface, the system provides an interactive visualization of the transport network.
 
-![MapView](images/MapView.png) <center>**Interface Gráfica ao Iniciar a Aplicação**</center>
+![MapView](images/MapView.png) <center>**Graphical Interface on Application Start**</center>
 
 ---
 
-## Estrutura de Dados
-
+## Data Structures
 
 ### PropertiesUtil
-Classe utilitária para a gestão de configurações via um ficheiro de propriedades **(config.properties)**. Implementa o padrão **Singleton** para garantir que uma única instância seja usada em toda a aplicação.
+A utility class for configuration management via a **properties file (config.properties)**. Implements the **Singleton** pattern to ensure a single instance is used throughout the application.
 
-#### Principais Funcionalidades:
-* Carrega automaticamente o ficheiro de configuração ao inicializar.
-* Permite aceder a valores de configurações utilizando chaves.
-* Verifica se uma chave específica existe no ficheiro de propriedades.
+#### Main Features:
+* Automatically loads the configuration file during initialization.
+* Allows access to configuration values using keys.
+* Checks if a specific key exists in the properties file.
 
-#### Principais Métodos:
-* `getProperty(String key)`: Retorna o valor de uma chave especifica.
-* `getProperty(String key, String defaultValue)`: Retorna o valor de uma chave ou um valor padrão se a chave não existir.
-* `containsKey(String key)`: Verifica se uma chave está presente.
+#### Main Methods:
+* `getProperty(String key)`: Returns the value of a specific key.
+* `getProperty(String key, String defaultValue)`: Returns the value of a key or a default value if the key does not exist.
+* `containsKey(String key)`: Checks if a key is present.
 
 ---
 
 ### StringManipulation
-Fornece métodos utilitários para manipulação e formatação de strings.
+Provides utility methods for string manipulation and formatting.
 
-#### Principais Métodos:
-* `capitalizeFirstLetter(String string)`: Formata uma string para que a primeira letra seja maiúscula e as restantes sejam minúsculas.
+#### Main Methods:
+* `capitalizeFirstLetter(String string)`: Formats a string so that the first letter is uppercase and the remaining letters are lowercase.
 
 ---
 
 ### MapView
-A classe MapView fornece uma representação gráfica interativa do mapa de transporte utilizando um grafo para modelar a rede de paragens e rotas. Esta classe estende **BorderPane** para criar uma interface gráfica, baseada na biblioteca **SmartGraph**.
+The MapView class provides an interactive graphical representation of the transport map using a graph to model the network of stops and routes. This class extends **BorderPane** to create a graphical interface based on the **SmartGraph** library.
 
-#### Principais Métodos:
-* `setupGraphPanel(Graph<Stop, Route>)`: Configura o painel do grafo, aplicando as propriedades e estilos definidos.
-* `assignPositionsToStops()`: Posiciona os vértices no grafo com base nas coordenadas importadas.
-* `setVertexClickAction()` e `setEdgeClickAction()`: Define ações interativas (ex.: apresentar detalhes das paragens e rotas).
-* `doLayout()`: Organiza o layout do painel na interface gráfica.
+#### Main Methods:
+* `setupGraphPanel(Graph<Stop, Route>)`: Configures the graph panel by applying predefined properties and styles.
+* `assignPositionsToStops()`: Positions the vertices in the graph based on imported coordinates.
+* `setVertexClickAction()` and `setEdgeClickAction()`: Defines interactive actions (e.g., displaying details of stops and routes).
+* `doLayout()`: Organizes the layout of the graphical interface.
 
 ---
 
 ### DataSetImporter
-Uma classe utilitária responsável pela importação e processamento de conjuntos de dados relacionados ao sistema de transportes, incluindo:
+A utility class responsible for importing and processing datasets related to the transport system, including:
 
-* `Importação de Paragens (Stops)`: Leitura e processamento do ficheiro **stops.csv**, contendo informações sobre as paragens.
-* `Importação de Coordenadas XY`: Processamento do ficheiro **xy.csv** para mapear códigos das paragens às suas posições no mapa.
-* `Importação de Rotas (Routes)`: Leitura de dados do ficheiro **routes.csv** para criar objetos de rotas que interligam as paragens com diferentes modos de transporte.
+* **`Stop Import (Stops)`**: Reading and processing the **stops.csv** file containing stop information.
+* **`XY Coordinates Import`**: Processing the **xy.csv** file to map stop codes to their positions on the map.
+* **`Route Import (Routes)`**: Reading data from the **routes.csv** file to create route objects linking stops with different modes of transport.
 
-#### Principais Métodos:
-* `importStops()`: Retorna uma lista de objetos Stop a partir do ficheiro CSV.
-* `importXY()`: Cria um mapa de coordenadas associando códigos de paragens a pontos XY.
-* `importRoutes(Map<String, Stop> stopMap)`: Gera rotas entre paragens, associando modos de transporte, distancias e os custos correspondentes.
-* Métodos auxiliares, como `adjustRouteData` (para lidar com dados incompletos) e `parseNullableDouble` (para conversão de valores numéricos opcionais).
+#### Main Methods:
+* `importStops()`: Returns a list of Stop objects from the CSV file.
+* `importXY()`: Creates a map of coordinates associating stop codes with XY points.
+* `importRoutes(Map<String, Stop> stopMap)`: Generates routes between stops, associating transport modes, distances, and corresponding costs.
+* Auxiliary methods such as `adjustRouteData` (for handling incomplete data) and `parseNullableDouble` (for parsing optional numeric values).
 
 ---
 
 ### Stop
-Representa uma paragem no sistema de transporte, com um código único, nome, latitude e longitude. Esta classe fornece informações geográficas de cada paragem e atua como um nó no mapa de transporte.
+Represents a stop in the transport system, with a unique code, name, latitude, and longitude. This class provides geographical information for each stop and acts as a node in the transport map.
 
-#### Atributos:
-* `String code`: código único da paragem.
-* `String name`: nome da paragem.
-* `double latitude`: coordenada de latitude.
-* `double longitude`: coordenada de longitude.
-* `Point position`: posição visual da paragem no grafo.
+#### Attributes:
+* `String code`: unique code of the stop.
+* `String name`: name of the stop.
+* `double latitude`: latitude coordinate.
+* `double longitude`: longitude coordinate.
+* `Point position`: visual position of the stop in the graph.
 
-#### Principais Métodos:
-
-* `getCode()`, `getName()`, `getLatitude()`, `getLongitude()`, `getPosition()`: métodos para aceder aos atributos da paragem.
-* `toString()`: devolve o nome da paragem como representação textual.
+#### Main Methods:
+* `getCode()`, `getName()`, `getLatitude()`, `getLongitude()`, `getPosition()`: methods to access stop attributes.
+* `toString()`: returns the name of the stop as a textual representation.
 
 ---
 
 ### Route
-Define uma rota com várias opções de **transporte**. Cada rota inclui uma lista de instâncias `Transport`, que representam os modos de transporte disponíveis, como  comboio, autocarro, barco, bicicleta ou deslocações a pé.
+Defines a route with various **transport options**. Each route includes a list of `Transport` instances, representing the available modes of transport, such as trains, buses, ferries, bicycles, or walking.
 
-#### Atributos:
-* `List transports`: lista de opções de transporte disponíveis na rota.
+#### Attributes:
+* `List transports`: list of available transport options for the route.
 
-#### Principais Métodos:
-* `getTransports()`: devolve a lista de opções de transporte disponíveis nesta rota.
+#### Main Methods:
+* `getTransports()`: returns the list of available transport options for this route.
 
 ---
 
 ### Transport
-Representa um meio de transporte, como um autocarro, comboio ou bicicleta, usado numa rota. Inclui informações sobre o nome do transporte, distância, duração e custo, proporcionando uma visão geral das características de cada opção de transporte.
+Represents a mode of transport, such as a bus, train, or bicycle, used on a route. Includes information about the transport’s name, distance, duration, and cost, providing an overview of each transport option’s characteristics.
 
-#### Atributos:
-* `String name`: nome do transporte (exemplo: "Autocarro").
-* `double distance`: distância percorrida.
-* `double duration`: duração da viagem.
-* `double cost`: custo ambiental.
+#### Attributes:
+* `String name`: name of the transport (e.g., "Bus").
+* `double distance`: distance covered.
+* `double duration`: travel duration.
+* `double cost`: environmental cost.
 
-#### Principais Métodos:
-* `getName()`, `getDistance()`, `getDuration()`, `getCost()`: métodos para aceder aos atributos do transporte.
-* `toString()`: representação textual do transporte com nome e distância.
+#### Main Methods:
+* `getName()`, `getDistance()`, `getDuration()`, `getCost()`: methods to access transport attributes.
+* `toString()`: textual representation of the transport with its name and distance.
 
 ---
 
 ### TransportMap
-Gere a rede de transporte, com paragens representadas como vértices e rotas como arestas. Esta classe utiliza um grafo para organizar a estrutura de transporte, armazenando paragens e rotas.
+Manages the transport network, with stops represented as vertices and routes as edges. This class uses a graph to organize the transport structure, storing stops and routes.
 
-#### Atributos:
-* `Graph<Stop, Route> graph`: grafo que representa a rede de transporte.
-* `Set<String> uniqueTransportModes`: conjunto de meios de transporte únicos na rede.
+#### Attributes:
+* `Graph<Stop, Route> graph`: graph representing the transport network.
+* `Set<String> uniqueTransportModes`: set of unique transport modes in the network.
 
-#### Principais Métodos:
-* `addStops(List<Stop> stops)`: adiciona uma lista de paragens à rede de transportes.
-* `addRoutes(List<Triplet<Stop, Stop, Route>> routes`: adiciona uma lista de rotas entre paragens.
-* `numStops()`, `numRoutes()`: devolvem o número de paragens e rotas na rede.
-* `getStops()`, `getRoutes()`, `getGraph()`: devolvem a coleção de paragens, rotas ou o próprio grafo.
-* `getUniqueTransportModes()`: devolve uma cópia dos meios de transporte únicos disponíveis na rede.
+#### Main Methods:
+* `addStops(List<Stop> stops)`: adds a list of stops to the transport network.
+* `addRoutes(List<Triplet<Stop, Stop, Route>> routes)`: adds a list of routes between stops.
+* `numStops()`, `numRoutes()`: return the number of stops and routes in the network.
+* `getStops()`, `getRoutes()`, `getGraph()`: return the collection of stops, routes, or the graph itself.
+* `getUniqueTransportModes()`: returns a copy of the unique transport modes available in the network.
 
 ---
 
-## Estrutura do Código
+## Code Structure
 
-O projeto segue uma estrutura de diretorias distintas, separando as responsabilidades em módulos. Abaixo está uma visão geral de cada módulo e da sua finalidade principal:
+The project follows a distinct directory structure, separating responsibilities into modules. Below is an overview of each module and its main purpose:
 
-### **Pasta `model`**
-Contém as classes principais que representam as entidades do sistema de transportes.
+### **`model` folder**
+Contains the main classes representing the entities of the transport system.
 
-* `Route`: Representa uma rota entre duas paragens e contém dados sobre o transporte, como distância, custo e duração.
-* `Stop`: Define uma paragem de transporte, incluindo o seu identificador único, nome e coordenadas (latitude e longitude).
-* `Transport`: Representa um modo de transporte específico (ex.: autocarro, comboio, bicicleta) e as suas propriedades associadas, como nome, custo, duração e distância.
-* `TransportMap`: 
-  * Gere o grafo da aplicação, onde as paragens representam os vértices e as rotas são as arestas. 
-  * Permite a adição de novas paragens e rotas e fornece métodos para aceder ao número de vértices e arestas do grafo.
+* `Route`: Represents a route between two stops and contains transport data, such as distance, cost, and duration.
+* `Stop`: Defines a transport stop, including its unique identifier, name, and coordinates (latitude and longitude).
+* `Transport`: Represents a specific mode of transport (e.g., bus, train, bicycle) and its associated properties, such as name, cost, duration, and distance.
+* `TransportMap`:
+    * Manages the application graph, where stops are vertices and routes are edges.
+    * Allows adding new stops and routes and provides methods to access the number of vertices and edges in the graph.
 
-### **Pasta `utils`**
-Inclui classes utilitárias para o processamento de dados e gestão de configurações.
+### **`utils` folder**
+Includes utility classes for data processing and configuration management.
 
-* `DataSetImporter`: Responsável pela importação e análise de ficheiros de dados (ex.: paragens, rotas, coordenadas) e pela sua conversão em objetos utilizáveis no sistema de transportes.
-* `PropertiesUtil`: Gere o carregamento e acesso aos valores de configuração do ficheiro `config.properties`, implementando o padrão Singleton.
-* `StringManipulation`: Fornece métodos utilitários para processar e formatar strings.
+* `DataSetImporter`: Responsible for importing and analyzing data files (e.g., stops, routes, coordinates) and converting them into usable objects in the transport system.
+* `PropertiesUtil`: Manages the loading and access to configuration values from the `config.properties` file, implementing the Singleton pattern.
+* `StringManipulation`: Provides utility methods for processing and formatting strings.
 
-### **Pasta `view`**
-Lida com a representação gráfica e a interação do utilizador com o sistema de transportes.
+### **`view` folder**
+Handles the graphical representation and user interaction with the transport system.
 
 * **`MapView`**:
-  * Responsável pela visualização gráfica do mapa de transportes. 
-  * Utiliza a biblioteca `SmartGraph` para renderizar o grafo na interface gráfica e define posições específicas para cada paragem com base nas coordenadas importadas. 
-  * Aplica um layout para organizar o grafo e carrega as propriedades visuais definidas num ficheiro CSS.
+    * Responsible for the graphical visualization of the transport map.
+    * Uses the `SmartGraph` library to render the graph on the graphical interface and defines specific positions for each stop based on imported coordinates.
+    * Applies a layout to organize the graph and loads visual properties defined in a CSS file.
 
-### **Classe `Main`:**
-  * A classe principal que inicia a aplicação. 
-  * Configura a interface gráfica, importa os dados das paragens e das rotas de ficheiros CSV e organiza-os num grafo. 
-  * Constrói uma representação visual interativa da rede de transportes.
-
----
-
-## Testes Unitários
-
-No projeto utilizamos ampla gama de testes unitários para verificar as funcionalidades principais das classes do sistema de transporte. A seguir, detalhamos a implementação e os cenários de testes desenvolvidos:
-
-
-### Testes para `DataSetImporter`
-
-* **Teste de Importação de Paragens:**
-    * Verifica se o método `importStops` carrega corretamente as paragens a partir do ficheiro CSV.
-    * Testa o número de paragens e a presença de dados essenciais (código, nome, coordenadas).
-
-* **Teste de Importação de Rotas:**
-    * Valida que o método `importRoutes` carrega corretamente as rotas.
-    * Verifica a correspondência das paragens e os dados de transporte (distância, duração e custo).
-
-* **Teste de Importação de Coordenadas:**
-    * Valida que o método `testImportXY` carrega corretamente as coordenadas das paragens.
-    * Verifica a correspondência das paragens e os dados de coordenadas (posição X, posição Y).
+### **Class `Main`:**
+- The main class that launches the application.
+- Configures the graphical interface, imports stop and route data from CSV files, and organizes them into a graph.
+- Builds an interactive visual representation of the transport network.
 
 ---
 
-### Testes para `Stop`
-* **Criação de paragens:**
-    * Garante que as paragens são criadas corretamente com atributos válidos e que entradas inválidas (coordenadas fora do intervalo ou posições nulas) lançam as excepções apropriadas. 
-* **Métodos de acesso:**
-    * Verifica que métodos como `getName(), getCode(), getLatitude(), getLongitude() e getPosition()` devolvem os valores esperados. 
-* **Comparação de paragens**: 
-    * Testa se paragens com os mesmos atributos não são consideradas iguais, respeitando a sua unicidade.
+## Unit Tests
+
+In the project, we utilize a wide range of unit tests to verify the core functionalities of the system's transportation classes. Below, we detail the implementation and test scenarios developed:
+
+### Tests for `DataSetImporter`
+
+- **Stop Import Test:**
+    - Verifies whether the `importStops` method correctly loads stops from the CSV file.
+    - Tests the number of stops and the presence of essential data (code, name, coordinates).
+
+- **Route Import Test:**
+    - Validates that the `importRoutes` method correctly loads routes.
+    - Checks the mapping of stops and transport data (distance, duration, and cost).
+
+- **Coordinate Import Test:**
+    - Validates that the `testImportXY` method correctly loads stop coordinates.
+    - Checks the mapping of stops and coordinate data (X position, Y position).
 
 ---
 
-### Testes para `Route`
-* **Gestão de transportes:** 
-  * Garante que a lista de transportes na rota é armazenada e devolvida correctamente. 
-* **Validação de rotas:**
-  * Testa se as rotas são criadas correctamente e se comportam conforme o esperado e que entradas inválidas (rotas sem transportes) lançam uma exceção.
+### Tests for `Stop`
+
+- **Stop Creation:**
+    - Ensures that stops are created correctly with valid attributes and that invalid inputs (out-of-range coordinates or null positions) throw the appropriate exceptions.
+
+- **Access Methods:**
+    - Verifies that methods like `getName()`, `getCode()`, `getLatitude()`, `getLongitude()`, and `getPosition()` return the expected values.
+
+- **Stop Comparison:**
+    - Tests that stops with the same attributes are not considered equal, respecting their uniqueness.
 
 ---
 
-### Testes para `TransportMap`
-* **Adição de elementos:**
-  * Garante que o número de paragens e rotas aumenta corretamente quando novos elementos são adicionados. 
-* **Unicidade de elementos:**
-  * Testa a unicidade de paragens ou rotas, resultam nas excepções esperadas. 
-* **Consulta de dados:**
-  * Verifica que métodos como `getStops()` e `getRoutes()` devolvem as paragens e rotas correctas. 
-* **Modos de transporte únicos:**
-  * Assegura que `getUniqueTransportModes()` devolve uma lista com os modos de transporte únicos no mapa.
+### Tests for `Route`
+
+- **Transport Management:**
+    - Ensures that the list of transports in the route is stored and returned correctly.
+
+- **Route Validation:**
+    - Tests that routes are created correctly and behave as expected and that invalid inputs (routes with no transportation modes) throw an exception.
 
 ---
 
-### Testes para `Transport`
-* **Atributos válidos:**
-  * Testa se o nome, a distância, a duração e o custo são definidos e acedidos correctamente. 
-* **Validação de dados:**
-  * Assegura que entradas inválidas, como distâncias negativas ou nomes nulos, resultam em erros. 
-* **Representação textual:**
-  * Verifica que o método `toString()` devolve uma descrição no formato esperado.
+### Tests for `TransportMap`
+
+- **Adding Elements:**
+    - Ensures that the number of stops and routes increases correctly when new elements are added.
+
+- **Element Uniqueness:**
+    - Tests that duplicate stops or routes result in the expected exceptions.
+
+- **Data Queries:**
+    - Verifies that methods like `getStops()` and `getRoutes()` return the correct stops and routes.
+
+- **Unique Transport Modes:**
+    - Ensures that `getUniqueTransportModes()` returns a list of unique transport modes in the map.
 
 ---
 
-## Mockup da Interface Gráfica
+### Tests for `Transport`
 
-Abaixo encontram-se os diferentes ecrãs da aplicação, incluindo o mockup base, os ecrãs de cada aba e, por fim, os modos alternativos disponíveis em cada aba.
+- **Valid Attributes:**
+    - Tests whether the name, distance, duration, and cost are set and accessed correctly.
 
-### Mockup Base da Interface Gráfica
+- **Data Validation:**
+    - Ensures that invalid inputs, such as negative distances or null names, result in errors.
 
-Demonstra a estrutura principal da interface que será utilizada ao longo das várias funcionalidades da aplicação. A interface é composta por um mapa que apresenta a rede de transportes e por um painel lateral com várias opções de navegação entre abas. Na parte inferior, são mostradas informações complementares.
+- **Textual Representation:**
+    - Verifies that the `toString()` method returns a description in the expected format.
+
+---
+
+## Graphical Interface Mockup
+
+Below are the different screens of the application, including the base mockup, the screens of each tab, and the alternative modes available in each tab.
+
+### Base Graphical Interface Mockup
+
+Demonstrates the main structure of the interface that will be used across the various functionalities of the application. The interface consists of a map displaying the transport network and a side panel with various navigation tab options. At the bottom, complementary information is shown.
 
 ![MockupMapView](images/Mockup/BaseMockup.png)
 
 ---
 
-### Informação Sobre Paragens e Rotas
+### Information About Stops and Routes
 
-Ao selecionar uma paragem ou rota, será possível visualizar os dados correspondentes no painel inferior.
+When selecting a stop or route, the corresponding data will be displayed in the bottom panel.
 
 ![MockupMapView](images/Mockup/StopRouteDetails/StopRouteDetails.gif)
 
 ---
 
-### Informação Sobre o Sistema de Informação
+### Information About the Information System
 
-Na aba de sistema de informação, localizada no painel lateral, são apresentadas estatísticas, incluindo o número total de paragens, paragens conectadas e isoladas, bem como o número total ou possível de rotas. Também estão disponíveis uma tabela e um gráfico que mostram as conexões entre paragens. Na parte inferior, encontram-se dicas sobre como consultar os detalhes de rotas ou paragens.
+In the information system tab, located in the side panel, statistics are presented, including the total number of stops, connected and isolated stops, as well as the total or possible number of routes. A table and a graph showing connections between stops are also available. At the bottom, tips on how to view route or stop details are provided.
 
 ![MockupMapView](images/Mockup/OtherScreens/TransportationNetworkInformation.png)
 
 ---
 
-### Informação Sobre o Planeador de Percurso
+### Information About the Route Planner
 
-Na aba do planeador de percurso, é possível selecionar a origem e o destino, o custo mais importante e os meios de transporte possíveis. Na parte inferior, são mostradas dicas sobre como a funcionalidade funciona, ou informações relacionadas com o percurso calculado.
+In the route planner tab, it is possible to select the origin and destination, the most important cost, and the possible means of transport. At the bottom, tips on how the functionality works or information related to the calculated route are displayed.
 
 ![MockupMapView](images/Mockup/RoutePlanner/RoutePlanner.gif)
 
 ---
 
-### Informação Sobre a Pesquisa de Paragens por Distância
+### Information About Stop Search by Distance
 
-Na aba de pesquisa de paragens por distância, é possível identificar as paragens mais próximas de uma localização específica, com base numa distância definida pelo utilizador. Na parte inferior, pode encontrar dicas sobre como funciona esta pesquisa, e mais tarde, os resultados dessa mesma pesquisa.
+In the stop search by distance tab, it is possible to identify the stops closest to a specific location, based on a user-defined distance. At the bottom, tips on how this search works can be found, and later, the results of that same search.
 
 ![MockupMapView](images/Mockup/FindStopsByDistance/FindStopsByDistance.gif)
 
 ---
 
-### Informação Sobre a Criação de Rota
+### Information About Route Creation
 
-Na aba de criação de rota, é possível escolher um custo a priorizar, e clicar duas vezes sobre uma paragem para começar o percurso. Assim que o utilizador começar o seu percurso, ele poderá voltar a trás na sua decisão, bem como consultar o menu inferior com informação mais detalhada do que pode ser apresentado diretamente no mapa.
+In the route creation tab, users can choose a cost to prioritize and double-click on a stop to start the route. Once the user begins their route, they can go back on their decision and consult the bottom menu for more detailed information than what can be directly presented on the map.
 
 ![MockupMapView](images/Mockup/DesignRoute/DesignRoute.gif)
 
 ---
 
-### Informação Sobre as Definições da Aplicação
+### Information About Application Settings
 
-Na aba de definições da aplicação, é possível alterar o modo do mapa e a linguagem da aplicação. Na parte inferior, são mostradas informações sobre como estas funcionam.
+In the application settings tab, users can change the map mode and the application language. At the bottom, information on how these options work is displayed.
 
 ![MockupMapView](images/Mockup/OtherScreens/SettingsMenu.png)
 
 ---
 
-### Informação Sobre o Histórico de Ações
+### Information About Action History
 
-Na aba de histórico de ações, é possível consultar diversas informações relacionadas com a utilização da aplicação na sessão atual.
+In the action history tab, users can view various pieces of information related to the usage of the application in the current session.
 
 ![MockupMapView](images/Mockup/OtherScreens/LogsMenu.png)
 
 ---
 
-### Informação Sobre a Alteração da Duração de Bicicleta
+### Information About Updating Transportation Data
 
-Na aba da alteração da duração de bicicleta é possível selecionar uma rota, e introduzir a nova duração para essa rota. No menu inferior, quando não existe nenhuma rota selecionada, é apresentada uma lista de todas as rotas cuja duração de bicicleta foi alterada. Quando uma rota já foi selecionada, o menu inferior apresenta uma versão simplificada dos detalhes de rotas com apenas a duração atual da bicicleta, o estado de todos os transportes daquela rota, e as paragens adjacentes. 
+In the bike duration adjustment tab, it is possible to select a route and input the new duration for that route. In the bottom menu, when no route is selected, a list of all routes whose bike duration has been adjusted is displayed. When a route is selected, the bottom menu presents a simplified version of the route details, showing only the current bike duration, the status of all transports on that route, and adjacent stops.
 
 ![MockupMapView](images/Mockup/UpdateBicycleDuration/UpdateBicycleDuration.gif)
 
 ---
 
-### Informação Sobre a Gestão de Estado da Rota
+### Information About Route State Management
 
-Na aba de gestão de estado da rota, é possível ativar ou desativar meios de transporte entre duas paragens selecionadas pelo utilizador. Quando não foi selecionada rota nenhuma, o menu inferior apresenta todas as rotas cujo estado dos modos de transporte foram alterados. Quando uma rota é selecionada, simplesmente é apresentada toda a informação sobre a rota.
+In the route state management tab, users can activate or deactivate transport modes between two stops selected by the user. When no route has been selected, the bottom menu shows all routes whose transport mode states have been modified. When a route is selected, all information about the route is simply displayed.
 
-![MockupMapView](images/Mockup/ManageRouteState/ManageRouteState.gif)
+![MockupMapView](images/Mockup/ManageRouteState/RoutesDeactivation-noRouteSelected.png)
 
 ---
 
-## Bibliotecas/dependências
+## Libraries/Dependencies
 
-O projeto tem as seguintes bibliotecas importadas a partir do _Maven_:
+The project includes the following libraries imported via _Maven_:
 
-* JUnit 5.8.1 - para testes unitários. 
-* SmartGraph 2.0.0 - para a visualização do grafo na interface gráfica. 
-* OpenCSV 5.9 - para a importação de dados de paragens e rotas a partir de ficheiros CSV. 
-* Javatuples 1.2 - para manipulação de estruturas de dados imutáveis como pares, triplos e outras tuplas.
+- **JUnit 5.8.1** - for unit testing.
+- **SmartGraph 2.0.0** - for graph visualization in the graphical interface.
+- **OpenCSV 5.9** - for importing stop and route data from CSV files.
+- **Javatuples 1.2** - for handling immutable data structures like pairs, triples, and other tuples.
 
 ## Java Development Kit
-O projeto requer uma versão do Java Development Kit (JDK) com suporte para JavaFX. Recomenda-se a utilização da **BellSoft Liberica JDK, versão 17 LTS (FULL)**.
 
-Transferência disponível em [BellSoft Liberica JDK](https://bell-sw.com/pages/downloads/#/java-17-lts)
+The project requires a version of the Java Development Kit (JDK) that supports JavaFX. We recommend using **BellSoft Liberica JDK, version 17 LTS (FULL)**.
+
+Download available at [BellSoft Liberica JDK](https://bell-sw.com/pages/downloads/#/java-17-lts).
 
 ---

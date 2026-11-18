@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: deactivateRouteTab.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="tabDeactivateRoutePane"
+      prefHeight="%screen.height" styleClass="tab-feature-pane">
+    <VBox styleClass="tab-main-container" prefWidth="%tabPane.content.width">
+        <Label text="%tab.deactivateRoute.title" styleClass="tab-title"/>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.deactivateRoute.first.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.deactivateRoute.first.label" styleClass="tab-text, tab-text-wrap"/>
+        </VBox>
+
+        <VBox fx:id="vBoxRouteSelectionUnselected" styleClass="tab-secondary-container">
+            <Label text="%tab.deactivateRoute.second.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.deactivateRoute.second.label" styleClass="tab-text, tab-text-wrap"/>
+            <Label text="%tab.deactivateRoute.second.label2" styleClass="tab-text, tab-text-wrap"/>
+        </VBox>
+
+        <VBox fx:id="vBoxRouteSelectionSelected" styleClass="tab-secondary-container">
+            <Label text="%tab.deactivateRoute.third.title2" styleClass="tab-subtitle"/>
+            <GridPane fx:id="gridPaneTransportModes" styleClass="tab-grid-container">
+
+            </GridPane>
+        </VBox>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.deactivateRoute.third.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.deactivateRoute.third.label" styleClass="tab-text, tab-text-wrap, tab-before-button"/>
+
+            <Button fx:id="buttonUndoUpdate" text="%tab.deactivateRoute.third.button" styleClass="tab-button"/>
+        </VBox>
+    </VBox>
+</Pane>

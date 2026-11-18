@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: settingsBottom.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="bottomSettingsPane"
+      styleClass="bottom-feature-pane">
+    <VBox fx:id="vBoxTips" prefWidth="%map.width" styleClass="bottom-main-container">
+        <Label text="%bottom.settings.title" styleClass="bottom-container-title"/>
+        <HBox styleClass="bottom-box">
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.settings.first.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.settings.first.label" styleClass="bottom-text"/>
+            </VBox>
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.settings.second.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.settings.second.label" styleClass="bottom-text"/>
+            </VBox>
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.settings.third.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.settings.third.label" styleClass="bottom-text"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</Pane>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: bottomStopDetails.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="paneBottomStopDetails"
+      styleClass="bottom-feature-pane">
+    <stylesheets>
+        <URL value="@styles/bottomDetails.css"/>
+    </stylesheets>
+    <VBox prefWidth="%map.width" styleClass="bottom-main-container, bottom-feature-pane" prefHeight="%bottom.height">
+        <HBox>
+            <Label text="%bottom.bottomStopDetails.title" styleClass="bottom-container-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="buttonClose" styleClass="close-button" maxWidth="%bottomDetails.closeButton.maxWidth">
+                <graphic>
+                    <FontIcon iconLiteral="mdi-close" styleClass="close-icon"/>
+                </graphic>
+            </Button>
+        </HBox>
+        <HBox styleClass="bottom-box">
+            <VBox>
+                <Label text="%bottom.bottomStopDetails.subtitle1" styleClass="bottom-subtitle, tab-before-spacing"/>
+                <GridPane styleClass="bottom-grid-gap">
+                    <Label text="%bottom.bottomStopDetails.stopName" styleClass="bottom-details-text"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label text="X" fx:id="labelName" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="%bottom.bottomStopDetails.stopNumberConnections" styleClass="bottom-details-text"
+                           GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label text="X" fx:id="labelConnections" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="%bottom.bottomStopDetails.stopLongitude" styleClass="bottom-details-text"
+                           GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label text="X" fx:id="labelLongitude" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="%bottom.bottomStopDetails.stopLatitude" styleClass="bottom-details-text"
+                           GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label text="X" fx:id="labelLatitude" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+
+            <HBox styleClass="bottom-box" fx:id="hBoxAdjacentStops">
+                <VBox styleClass="bottom-table-container">
+                    <Label text="%bottom.bottomStopDetails.table.title" styleClass="bottom-free-subtitle"/>
+                    <GridPane styleClass="bottom-grid-gap">
+                        <Label styleClass="bottom-grid-header" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                               text="%bottom.bottomStopDetails.table.row1"/>
+                        <Label styleClass="bottom-grid-header" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                               text="%bottom.bottomStopDetails.table.row2"/>
+                        <ScrollPane fx:id="scrollBottomPaneStopDetails" styleClass="bottom-scroll-pane-border"
+                                    GridPane.rowIndex="0" GridPane.rowSpan="5"
+                                    GridPane.columnIndex="1" maxWidth="%findStopsBottom.table.maxWidth">
+                            <GridPane fx:id="gridBottomPaneStopDetails"
+                                      styleClass="bottom-grid-text-scroll-pane, bottom-grid-gap"/>
+                        </ScrollPane>
+                    </GridPane>
+                </VBox>
+            </HBox>
+        </HBox>
+    </VBox>
+</Pane>

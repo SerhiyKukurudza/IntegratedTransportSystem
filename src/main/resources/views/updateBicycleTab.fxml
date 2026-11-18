@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: updateBicycleTab.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="tabUpdateBicyclePane"
+      prefHeight="%screen.height" styleClass="tab-feature-pane">
+    <VBox styleClass="tab-main-container" prefWidth="%tabPane.content.width">
+        <Label text="%tab.updateBicycle.title" styleClass="tab-title"/>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.updateBicycle.first.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.updateBicycle.first.label" styleClass="tab-text, tab-text-wrap"/>
+        </VBox>
+
+        <VBox fx:id="vBoxUpdateDurationUnselected" styleClass="tab-secondary-container">
+            <Label text="%tab.updateBicycle.second.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.updateBicycle.second.label" styleClass="tab-text, tab-text-wrap"/>
+            <Label text="%tab.updateBicycle.second.label2" styleClass="tab-text, tab-text-wrap"/>
+        </VBox>
+
+        <VBox fx:id="vBoxUpdateDurationSelected" styleClass="tab-secondary-container">
+            <Label text="%tab.updateBicycle.second.title" styleClass="tab-subtitle"/>
+            <VBox styleClass="tab-before-button">
+                <Label text="%tab.updateBicycle.second.label3" styleClass="tab-text, tab-text-wrap"/>
+                <TextField fx:id="textFieldDuration" promptText="%tab.updateBicycle.second.textFieldPrompt"
+                           styleClass="tab-input-sizing"/>
+            </VBox>
+
+            <Button fx:id="buttonUpdate" text="%tab.updateBicycle.second.button" styleClass="tab-button"/>
+        </VBox>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.updateBicycle.third.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.updateBicycle.third.label" styleClass="tab-text, tab-text-wrap, tab-before-button"/>
+
+            <Button fx:id="buttonUndoUpdate" text="%tab.updateBicycle.third.button" styleClass="tab-button"/>
+        </VBox>
+    </VBox>
+</Pane>

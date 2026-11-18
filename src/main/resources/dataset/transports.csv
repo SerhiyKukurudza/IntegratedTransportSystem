@@ -1,0 +1,7 @@
+transport_name,transport_color
+train, #28A745
+bus, #FFC107
+boat, #007BFF
+walk, #8B4513
+bicycle, #800080
+drone, #FF5733

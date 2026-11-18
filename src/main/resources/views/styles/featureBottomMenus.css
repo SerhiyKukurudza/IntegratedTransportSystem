@@ -1,0 +1,106 @@
+/******************************************************************************************************************************
+ * File Name: featureBottomMenus.css
+ * Authors: Diogo Santos - 202200508 (PL6)
+ *          Diogo Veigas - 202200879 (PL5)
+ *          Serhiy Kukurudza - 202200521 (PL6)
+ * Teacher: Luís Damas
+ */
+
+/* Style for the main Pane */
+.bottom-feature-pane {
+    -fx-background-color: #EEE;
+}
+
+/* Style for the HBox containing the tips */
+.bottom-main-container {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 20;
+    -fx-padding: 20;
+}
+
+/* Style for each VBox (tips box) */
+.bottom-box {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 20;
+    -fx-padding: 0 20 0 0;
+}
+
+/* Style for each VBox (tips box) */
+.bottom-childBox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-border-color: #CCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #FFF;
+    -fx-max-width: 300px;
+}
+
+/* Style for the main title */
+.bottom-container-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000;
+}
+
+/* Style for subtitles */
+.bottom-subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000;
+}
+
+/* Style for text */
+.bottom-text {
+    -fx-wrap-text: true;
+    -fx-font-size: 14px;
+    -fx-text-fill: #111;
+}
+
+/* Style for subtitles outside of boxes */
+.bottom-free-subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000;
+    -fx-padding: 0 0 20 0;
+}
+
+/* Grid header text style */
+.bottom-grid-header {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000;
+}
+
+.bottom-bold-text {
+    -fx-font-weight: bold;
+}
+
+/* Grid text style */
+.bottom-grid-text-scroll-pane > .label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #000;
+}
+
+/* The gap the grid of the bottom menu will have*/
+.bottom-grid-gap {
+    -fx-hgap: 20;
+    -fx-vgap: 10
+}
+
+/* Hides the border of a scroll pane with style */
+.bottom-scroll-pane-border {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Space two different boxes in the specialized bottom view (left padding) */
+.bottom-table-container {
+    -fx-padding: 0 0 0 50;
+}
+
+/* Increases bottom spacing */
+.tab-before-spacing {
+    -fx-padding: 0 0 20 0;
+}

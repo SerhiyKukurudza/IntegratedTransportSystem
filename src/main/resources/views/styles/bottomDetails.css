@@ -1,0 +1,24 @@
+/******************************************************************************************************************************
+ * File Name: bottomDetails.css
+ * Authors: Diogo Santos - 202200508 (PL6)
+ *          Diogo Veigas - 202200879 (PL5)
+ *          Serhiy Kukurudza - 202200521 (PL6)
+ * Teacher: Luís Damas
+ */
+
+/* Close button and icon */
+.close-icon{
+    -fx-icon-size: 20;
+}
+
+.close-button{
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+    -fx-cursor: hand;
+    -fx-padding: 0 30 0 0;
+}
+
+.bottom-details-text{
+    -fx-font-size: 15px;
+    -fx-text-fill: #000;
+}

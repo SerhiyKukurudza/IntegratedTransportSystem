@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: findStopsTab.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="tabFindStopsPane"
+      prefHeight="%screen.height" styleClass="tab-feature-pane">
+    <VBox styleClass="tab-main-container" prefWidth="%tabPane.content.width">
+        <Label text="%tab.find.title" styleClass="tab-title"/>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.findStops.stops.title" styleClass="tab-subtitle"/>
+
+            <VBox>
+                <Label text="%tab.findStops.stops.label1" styleClass="tab-text"/>
+                <ComboBox fx:id="comboBoxOriginStop" promptText="%tab.findStops.stops.comboBoxLabel" styleClass="tab-input-sizing"/>
+            </VBox>
+
+            <VBox styleClass="tab-before-button">
+                <Label text="%tab.findStops.stops.label2" styleClass="tab-text"/>
+                <TextField fx:id="textFieldNumberOfStops" promptText="%tab.findStops.stops.textFieldPrompt" styleClass="tab-input-sizing"/>
+            </VBox>
+
+            <Button fx:id="buttonFindStops" text="%tab.findStops.stops.buttonText" styleClass="tab-button"/>
+        </VBox>
+    </VBox>
+</Pane>

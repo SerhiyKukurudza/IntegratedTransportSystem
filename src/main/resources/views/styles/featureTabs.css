@@ -1,0 +1,148 @@
+/******************************************************************************************************************************
+ * File Name: featureTabs.css
+ * Authors: Diogo Santos - 202200508 (PL6)
+ *          Diogo Veigas - 202200879 (PL5)
+ *          Serhiy Kukurudza - 202200521 (PL6)
+ * Teacher: Luís Damas
+ */
+
+/* The actual tab pane */
+.tab-pane {
+    -fx-background: #C6C6C6;
+}
+
+/* Each tab size */
+.tab-pane .tab {
+    -fx-pref-height: 80px;
+    -fx-pref-width: 80px;
+
+    /* Centers the icon in the middle of the tab*/
+    -fx-padding: 20;
+
+    /* Removes focus ring color */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* Selected tab pane */
+.tab {
+    -fx-background: #EEE;
+    -fx-cursor: hand;
+}
+
+/* Pane of the selected pane */
+.tab-feature-pane {
+    -fx-background-color: #EEE;
+}
+
+/* Icon sizes */
+.tab-icon {
+    -fx-icon-size: 40;
+}
+
+/* Title style */
+.tab-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000;
+    -fx-padding: 10px 0;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+/* Subtitle style */
+.tab-subtitle {
+    -fx-font-size: 20px;
+    -fx-font-style: italic;
+    -fx-text-fill: #000;
+    -fx-padding: 5px 0;
+}
+
+/* Text style */
+.tab-text {
+    -fx-font-size: 16px;
+    -fx-font-weight: lighter;
+    -fx-text-fill: #111;
+    -fx-padding: 2px 0;
+}
+
+.tab-text-bold {
+    -fx-font-weight: bold;
+}
+
+.tab-text-wrap {
+    -fx-wrap-text: true;
+}
+
+/* Main VBox container */
+.tab-main-container {
+    /*-fx-background-color: pink;*/
+    -fx-padding: 20 40;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+
+/* Secondary VBox containers */
+.tab-secondary-container {
+    /*-fx-background-color: orange;*/
+    -fx-spacing: 5;
+    -fx-alignment: center;
+}
+
+/* Center the direct secondary container children */
+.tab-secondary-container > HBox {
+    -fx-alignment: center;
+}
+
+/* Text size and width for combo box and text field */
+.tab-input-sizing {
+    -fx-font-size: 15;
+    -fx-pref-width: 300;
+}
+
+/* Default button customization */
+.tab-button {
+    -fx-font-size: 15;
+    -fx-pref-width: 300;
+    -fx-cursor: hand;
+}
+
+/* Increases bottom spacing */
+.tab-before-button {
+    -fx-padding: 0 0 20 0;
+}
+
+/* Error modifiers */
+.tab-input-error {
+    -fx-border-color: #ff2929;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+/* Style used for the default grid container */
+.tab-grid-container {
+    -fx-alignment: center;
+    -fx-hgap: 5;
+    -fx-vgap: 3;
+}
+
+/* Transport color and label grid style */
+.tab-transports-grid{
+    -fx-hgap: 10;
+    -fx-vgap: 3;
+}
+
+/* Remove scroll pane border styles at the feature tabs */
+.tab-scroll-pane-border {
+    -fx-background-color: #EEE;
+    -fx-border-color: transparent;
+}
+
+/* Fix the inner part of the scroll pane border */
+.tab-scroll-pane-border .viewport {
+    -fx-background-color: transparent;
+}
+
+.tab-text-wrap {
+    -fx-wrap-text: true;
+}

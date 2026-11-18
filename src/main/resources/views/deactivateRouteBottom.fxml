@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: deactivateRouteBottom.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="bottomDeactivateRoutePane">
+    <VBox fx:id="vBoxTips" prefWidth="%map.width" styleClass="bottom-main-container">
+        <Label text="%bottom.deactivateRoute.title" styleClass="bottom-container-title"/>
+        <HBox styleClass="bottom-box">
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.deactivateRoute.first.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.deactivateRoute.first.label" styleClass="bottom-text"/>
+            </VBox>
+
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.deactivateRoute.second.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.deactivateRoute.second.label" styleClass="bottom-text"/>
+            </VBox>
+
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.deactivateRoute.third.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.deactivateRoute.third.label" styleClass="bottom-text"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</Pane>

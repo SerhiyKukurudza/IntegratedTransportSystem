@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: base.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.StackPane?>
+<?import java.net.URL?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx"
+      prefHeight="%screen.height" prefWidth="%screen.width">
+    <stylesheets>
+        <URL value="@styles/base.css" />
+        <URL value="@styles/featureBottomMenus.css" />
+        <URL value="@styles/featureTabs.css" />
+    </stylesheets>
+    <TabPane fx:id="tabPane" prefHeight="%screen.height" prefWidth="%tabPane.width" side="LEFT"
+             tabClosingPolicy="UNAVAILABLE">
+        <Tab fx:id="tabNetworkInformation">
+            <tooltip>
+                <Tooltip text="%tab.info.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-information-outline" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabNetworkInformationPane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabCalculateRoute">
+            <tooltip>
+                <Tooltip text="%tab.planner.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-calculator" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabCalculateRoutePane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabFindStops">
+            <tooltip>
+                <Tooltip text="%tab.find.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-magnify" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabFindStopsPane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabDesignRoute">
+            <tooltip>
+                <Tooltip text="%tab.design.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-pencil" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabDesignRoutePane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabUpdateBicycle">
+            <tooltip>
+                <Tooltip text="%tab.updateBicycle.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-bike" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabUpdateBicyclePane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabDeactivateRoute">
+            <tooltip>
+                <Tooltip text="%tab.deactivateRoute.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-map-marker-off" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabDeactivateRoutePane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabLogs">
+            <tooltip>
+                <Tooltip text="%tab.logs.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-history" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabLogsPane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+        <Tab fx:id="tabSettings">
+            <tooltip>
+                <Tooltip text="%tab.settings.title"/>
+            </tooltip>
+            <graphic>
+                <FontIcon iconLiteral="mdi-settings" styleClass="tab-icon"/>
+            </graphic>
+            <Pane fx:id="tabSettingsPane" prefHeight="%screen.height" prefWidth="%tabPane.width"
+                  styleClass="tab-feature-pane"/>
+        </Tab>
+    </TabPane>
+    <VBox prefHeight="%screen.height" prefWidth="%screen.height">
+        <Pane fx:id="paneMap" prefHeight="%map.height" prefWidth="%map.width"/>
+        <StackPane prefHeight="%bottom.height" prefWidth="%map.width">
+            <Pane fx:id="paneBottom" prefHeight="%bottom.height" prefWidth="%map.width"/>
+            <Pane fx:id="paneBottomRouteDetails" prefHeight="%bottom.height" prefWidth="%map.width"/>
+            <Pane fx:id="paneBottomStopDetails" prefHeight="%bottom.height" prefWidth="%map.width"/>
+        </StackPane>
+    </VBox>
+</HBox>

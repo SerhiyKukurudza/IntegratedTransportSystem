@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: settingsTab.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="tabSettingsPane"
+      prefHeight="%screen.height" styleClass="tab-feature-pane">
+    <VBox styleClass="tab-main-container" prefWidth="%tabPane.content.width">
+        <Label text="%tab.settings.title" styleClass="tab-title"/>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.settings.first.title" styleClass="tab-subtitle"/>
+
+            <VBox>
+                <Label text="%tab.settings.first.label1" styleClass="tab-text, tab-text-wrap"/>
+                <ComboBox fx:id="comboBoxMapMode" promptText="%tab.settings.first.comboBoxMapModeLabel" styleClass="tab-input-sizing"/>
+            </VBox>
+
+            <VBox styleClass="tab-before-button">
+                <Label text="%tab.settings.first.label2" styleClass="tab-text, tab-text-wrap"/>
+                <ComboBox fx:id="comboBoxLanguage" promptText="%tab.settings.first.comboBoxLanguageLabel" styleClass="tab-input-sizing"/>
+            </VBox>
+
+            <Button fx:id="buttonUpdateSettings" text="%tab.settings.button" styleClass="tab-button"/>
+        </VBox>
+    </VBox>
+</Pane>

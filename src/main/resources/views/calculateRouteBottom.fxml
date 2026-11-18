@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: calculateRouteBottom.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http:a//javafx.com/fxml"
+      fx:id="bottomCalculateRoutePane"
+      styleClass="bottom-feature-pane">
+
+    <VBox fx:id="vBoxTips" prefWidth="%map.width" styleClass="bottom-main-container">
+        <Label text="%bottom.calculateRoute.title" styleClass="bottom-container-title"/>
+
+        <HBox styleClass="bottom-box">
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.calculateRoute.first.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.calculateRoute.first.label" styleClass="bottom-text"/>
+            </VBox>
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.calculateRoute.second.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.calculateRoute.second.label1" styleClass="bottom-text"/>
+                <Label text="%bottom.calculateRoute.second.label2" styleClass="bottom-text"/>
+            </VBox>
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.calculateRoute.third.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.calculateRoute.third.label" styleClass="bottom-text"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <VBox fx:id="vBoxCalculatedRoute" prefWidth="%map.width" styleClass="bottom-main-container">
+        <HBox>
+            <Label fx:id="labelOriginStopName" styleClass="bottom-container-title"/>
+            <Label text="%bottom2.calculateRoute.title" styleClass="bottom-container-title"/>
+            <Label fx:id="labelDestinationStopName" styleClass="bottom-container-title"/>
+        </HBox>
+
+        <HBox styleClass="bottom-box" prefWidth="%map.width">
+            <VBox prefWidth="%calculateRouteBottom.info.prefWidth">
+                <Label text="%bottom2.calculateRoute.cost.title" styleClass="bottom-subtitle, tab-before-spacing" />
+
+                <GridPane styleClass="bottom-grid-gap">
+                    <Label text="%bottom2.calculateRoute.cost.distance" styleClass="bottom-text"
+                           GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="labelDistance" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="%bottom2.calculateRoute.cost.duration" styleClass="bottom-text"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="labelDuration" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" >
+                        <FontIcon iconLiteral="mdi-leaf" fill="forestgreen" iconSize="16" />
+                        <Label text="%bottom2.calculateRoute.cost.cost" styleClass="bottom-text" />
+                    </HBox>
+                    <Label fx:id="labelCost" styleClass="bottom-details-text, bottom-bold-text"
+                           GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                </GridPane>
+            </VBox>
+
+            <VBox>
+                <Label text="%bottom2.calculateRoute.description" styleClass="bottom-subtitle, tab-before-spacing" />
+
+                <GridPane styleClass="bottom-grid-gap">
+                    <Label styleClass="bottom-grid-header" GridPane.rowIndex="0" GridPane.columnIndex="0" text="%bottom2.calculateRoute.table.row1" />
+                    <Label styleClass="bottom-grid-header" GridPane.rowIndex="1" GridPane.columnIndex="0" text="%bottom2.calculateRoute.table.row2" />
+                    <Label styleClass="bottom-grid-header" GridPane.rowIndex="2" GridPane.columnIndex="0" text="%bottom2.calculateRoute.table.row3" />
+                    <ScrollPane fx:id="scrollPaneCalculatedRoute" styleClass="bottom-scroll-pane-border"
+                                GridPane.rowIndex="0" GridPane.rowSpan="5"
+                                GridPane.columnIndex="1" maxWidth="%calculateRouteBottom.table.maxWidth">
+                        <GridPane fx:id="gridPaneCalculatedRoute" styleClass="bottom-grid-text-scroll-pane, bottom-grid-gap" />
+                    </ScrollPane>
+                </GridPane>
+                <ScrollPane fx:id="scrollPaneRouteStops" styleClass="bottom-scroll-pane-border"
+                            GridPane.rowIndex="0" GridPane.rowSpan="5"
+                            GridPane.columnIndex="1" maxWidth="%calculateRouteBottom.table.maxWidth">
+                    <GridPane fx:id="gridPaneRouteStops" styleClass="bottom-grid-text-scroll-pane, bottom-grid-gap" />
+                </ScrollPane>
+            </VBox>
+        </HBox>
+    </VBox>
+</Pane>
+

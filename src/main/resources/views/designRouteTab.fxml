@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: designRouteTab.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="tabDesignRoutePane"
+      prefHeight="%screen.height" styleClass="tab-feature-pane">
+    <VBox styleClass="tab-main-container" prefWidth="%tabPane.content.width">
+        <Label text="%tab.design.title" styleClass="tab-title"/>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.designRoute.cost.costTitle" styleClass="tab-subtitle"/>
+
+            <VBox>
+                <Label text="%tab.designRoute.cost.preferredCost" styleClass="tab-text"/>
+                <ComboBox fx:id="comboBoxPreferredCost" promptText="%tab.designRoute.cost.comboBoxLabel" styleClass="tab-input-sizing"/>
+            </VBox>
+        </VBox>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.designRoute.cost.stopTitle" styleClass="tab-subtitle"/>
+
+            <Label text="%tab.designRoute.stop.instructions.start" styleClass="tab-text, tab-text-wrap"/>
+            <Label text="%tab.designRoute.stop.instructions.passThrough" styleClass="tab-text, tab-text-wrap"/>
+        </VBox>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.designRoute.transportationMode" styleClass="tab-subtitle"/>
+
+            <GridPane fx:id="gridPaneTransportationModes" styleClass="tab-transports-grid"/>
+        </VBox>
+
+        <VBox fx:id="vBoxUndo" styleClass="tab-secondary-container">
+            <Label text="%tab.designRoute.undo.title" styleClass="tab-subtitle"/>
+            <Label text="%tab.designRoute.undo.description"
+                   styleClass="tab-text, tab-before-button" />
+
+            <Button fx:id="buttonUndoSelection" text="%tab.designRoute.undo.button" styleClass="tab-button"/>
+        </VBox>
+
+    </VBox>
+</Pane>

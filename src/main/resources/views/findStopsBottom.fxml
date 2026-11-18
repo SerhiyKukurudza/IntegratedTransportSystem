@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: findStopsBottom.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="bottomFindStopsPane">
+    <VBox fx:id="vBoxTips" prefWidth="%map.width" styleClass="bottom-main-container">
+        <Label text="%bottom.findStops.title" styleClass="bottom-container-title"/>
+        <HBox styleClass="bottom-box">
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.findStops.first.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.findStops.first.label" styleClass="bottom-text"/>
+            </VBox>
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.findStops.second.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.findStops.second.label" styleClass="bottom-text"/>
+            </VBox>
+            <VBox styleClass="bottom-childBox">
+                <Label text="%bottom.findStops.third.title" styleClass="bottom-subtitle"/>
+                <Label text="%bottom.findStops.third.label" styleClass="bottom-text"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <VBox fx:id="vBoxFoundStops" prefWidth="%map.width" styleClass="bottom-main-container">
+        <HBox>
+            <Label text="%bottom2.findStops.title" styleClass="bottom-container-title"/>
+            <Label fx:id="labelDistanceNumber" styleClass="bottom-container-title"/>
+            <Label text="%bottom2.findStops.title2" styleClass="bottom-container-title"/>
+            <Label text="%bottom2.findStops.title3" styleClass="bottom-container-title"/>
+            <Label fx:id="labelOriginStopName" styleClass="bottom-container-title"/>
+            <Label text="%bottom2.findStops.title3" styleClass="bottom-container-title"/>
+        </HBox>
+        <HBox styleClass="bottom-box">
+            <VBox>
+                <Label text="%bottom2.findStops.first.title" styleClass="bottom-free-subtitle"/>
+                <GridPane styleClass="bottom-grid-gap">
+                    <Label styleClass="bottom-grid-header" GridPane.rowIndex="0" GridPane.columnIndex="0" text="%bottom2.findStops.table.row1" />
+                    <Label styleClass="bottom-grid-header" GridPane.rowIndex="1" GridPane.columnIndex="0" text="%bottom2.findStops.table.row2" />
+                    <Label styleClass="bottom-grid-header" GridPane.rowIndex="2" GridPane.columnIndex="0" text="%bottom2.findStops.table.row3" />
+                    <ScrollPane fx:id="scrollPaneFoundStops" styleClass="bottom-scroll-pane-border"
+                                GridPane.rowIndex="0" GridPane.rowSpan="5"
+                                GridPane.columnIndex="1" maxWidth="%findStopsBottom.table.maxWidth">
+                        <GridPane fx:id="gridPaneFoundStops" styleClass="bottom-grid-text-scroll-pane, bottom-grid-gap" />
+                    </ScrollPane>
+                </GridPane>
+            </VBox>
+        </HBox>
+    </VBox>
+</Pane>

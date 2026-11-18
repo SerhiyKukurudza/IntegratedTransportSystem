@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File Name: networkInformationTab.fxml
+Authors: Diogo Santos - 202200507 (PL6)
+          Diogo Veigas - 202200878 (PL5)
+         Serhiy Kukurudza - 202200520 (PL6)
+Teacher: Luís Damas
+-->
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import java.net.URL?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="tabNetworkInformationPane"
+      prefHeight="%screen.height" styleClass="tab-feature-pane">
+    <stylesheets>
+        <URL value="@styles/networkInformationTab.css"/>
+    </stylesheets>
+    <VBox styleClass="tab-main-container" prefWidth="%tabPane.content.width">
+        <Label text="%tab.info.title" styleClass="tab-title"/>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.networkInformation.subtitle1" styleClass="tab-subtitle"/>
+
+            <GridPane styleClass="tab-grid-container">
+                <Label text="%tab.networkInformation.numberOfStops" styleClass="tab-text"
+                       GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label text="X" fx:id="labelNumberOfStops" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <styleClass>
+                        <String fx:value="tab-text"/>
+                        <String fx:value="tab-text-bold"/>
+                    </styleClass>
+                </Label>
+
+                <Label text="%tab.networkInformation.numberOfIsolatedStops" styleClass="tab-text"
+                       GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label text="X" fx:id="labelNumberOfIsolatedStops" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <styleClass>
+                        <String fx:value="tab-text"/>
+                        <String fx:value="tab-text-bold"/>
+                    </styleClass>
+                </Label>
+
+                <Label text="%tab.networkInformation.numberOfNotIsolatedStops" styleClass="tab-text"
+                       GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label text="X" fx:id="labelNumberOfNotIsolatedStops" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <styleClass>
+                        <String fx:value="tab-text"/>
+                        <String fx:value="tab-text-bold"/>
+                    </styleClass>
+                </Label>
+            </GridPane>
+        </VBox>
+
+        <VBox styleClass="tab-secondary-container">
+            <Label text="%tab.networkInformation.subtitle2" styleClass="tab-subtitle"/>
+
+            <ScrollPane styleClass="tab-scroll-pane-border"
+                        maxHeight="%networkInformationTab.dynamicRoutes.maxHeight">
+                <StackPane prefWidth="%networkInformationTab.dynamicRoutesStackPane.width">
+                    <GridPane fx:id="gridPaneRoutesByTransport"
+                              styleClass="tab-grid-container">
+
+                        <Label text="%tab.networkInformation.numberOfRoutes" styleClass="tab-text"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="X" fx:id="labelNumberOfRoutes" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <styleClass>
+                                <String fx:value="tab-text"/>
+                                <String fx:value="tab-text-bold"/>
+                            </styleClass>
+                        </Label>
+                    </GridPane>
+                </StackPane>
+            </ScrollPane>
+        </VBox>
+
+        <VBox styleClass="centralization-container">
+            <Label text="%tab.networkInformation.subtitle3" styleClass="tab-subtitle"/>
+            <TableView fx:id="tableStops" prefHeight="%networkInformationTab.barChart.height"
+                       maxWidth="%networkInformationTab.table.width">
+                <columns>
+                    <TableColumn fx:id="tableColumnStopName" text="%tab.networkInformation.stopName"/>
+                    <TableColumn fx:id="tableColumnConnectedRoutes" text="%tab.networkInformation.routeName"/>
+                </columns>
+            </TableView>
+
+            <BarChart fx:id="barChart" prefHeight="%networkInformationTab.barChart.height"
+                      prefWidth="%networkInformationTab.barChart.width">
+                <xAxis>
+                    <CategoryAxis fx:id="xAxis" label="%tab.networkInformation.stops"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis" label="%tab.networkInformation.connectedRoutes"/>
+                </yAxis>
+            </BarChart>
+
+            <Button fx:id="buttonToggleCentralization" styleClass="tab-button"/>
+        </VBox>
+    </VBox>
+</Pane>
